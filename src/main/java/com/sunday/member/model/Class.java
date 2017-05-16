@@ -4,9 +4,18 @@ package com.sunday.member.model;
  * Created by novot on 2017-05-16.
  */
 public class Class {
+    private long serialNo;
     private String name;
     private String classRoom;
     private int people;
+
+    public long getSerialNo() {
+        return serialNo;
+    }
+
+    public void setSerialNo(long serialNo) {
+        this.serialNo = serialNo;
+    }
 
     public String getName() {
         return name;
@@ -35,7 +44,8 @@ public class Class {
     @Override
     public String toString() {
         return "Class{" +
-                "name='" + name + '\'' +
+                "serialNo=" + serialNo +
+                ", name='" + name + '\'' +
                 ", classRoom='" + classRoom + '\'' +
                 ", people=" + people +
                 '}';

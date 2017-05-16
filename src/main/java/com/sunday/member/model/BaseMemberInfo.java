@@ -14,7 +14,7 @@ public class BaseMemberInfo {
     protected LocalDate birthday;
     protected String address;
     protected String zipcode;
-    private String cellNumber;
+    protected String cellNumber;
 
     public long getSerialNo() {
         return serialNo;

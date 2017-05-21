@@ -8,18 +8,18 @@ public enum Position {
     VICE_PRINCIPAL("P1", "교감"),
     REGULAR_TEACHER("P2", "평교사");
 
-    private final String positionCode;
-    private final String positionName;
-    Position(String positionCode, String positionName) {
-        this.positionCode = positionCode;
-        this.positionName = positionName;
+    private final String code;
+    private final String name;
+    Position(String positionCode, String name) {
+        this.code = positionCode;
+        this.name = code;
     }
 
-    public String getPositionCode() {
-        return positionCode;
+    public String getCode() {
+        return code;
     }
 
-    public String getPositionName() {
-        return positionName;
+    public String getName() {
+        return name;
     }
 }

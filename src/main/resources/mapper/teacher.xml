@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sunday.member.Teacher">
-    <!--<insert id="insert" parameterType="com.sunday.member.model.Teacher">
+    <insert id="insert" parameterType="com.sunday.member.model.Teacher">
         INSERT INTO teacher(serial, name, christian_name, age, festivitas, birthday, address, zipcode, cell_phone, career, position, create_dt, create_who)
         VALUES(null, #{name}, #{christianName}, #{age}, #{age}, #{age}, #{address}, #{zipcode}, #{cell_phone}, #{career}, #{position}, now(), 'system');
-    </insert>-->
+    </insert>
 
     <select id="selectTeacherInfo" parameterType="long" resultType="com.sunday.member.model.Teacher">
-        SELECT serial, name, age, festivitas, address
+        SELECT serial, name, christian_name, age, festivitas, birthday, address, zipcode, cell_phone, career, create_dt, create_who, update_dt, update_who
         FROM teacher
         WHERE serial = #{serial}
     </select>

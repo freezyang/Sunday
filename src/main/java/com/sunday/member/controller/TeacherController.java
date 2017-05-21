@@ -3,10 +3,14 @@ package com.sunday.member.controller;
 import com.sunday.member.model.Teacher;
 import com.sunday.member.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.time.LocalDate;
 
 /**
  * Created by novot on 2017-05-16.
@@ -21,6 +25,13 @@ public class TeacherController {
     @RequestMapping("/info/{serial}")
     @ResponseBody
     public Teacher getTeacherInfo(@PathVariable("serial") long serial) {
-        return teacherService.getTeacherInfo(serial);
+        Teacher teacher = teacherService.getTeacherInfo(serial);
+        return teacher;
+    }
+
+    @RequestMapping("/insert")
+    public void insertTeacherInfo(@RequestParam Teacher teacher) {
+
+        teacherService.insert(teacher);
     }
 }

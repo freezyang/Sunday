@@ -1,6 +1,6 @@
 package com.sunday.member.model;
 
-import java.time.LocalDate;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
  * Created by novot on 2017-05-16.
@@ -27,9 +27,6 @@ public class Teacher extends BaseMemberInfo{
 
     @Override
     public String toString() {
-        return "Teacher{" +
-                "career=" + career +
-                ", position=" + position +
-                '}';
+        return ToStringBuilder.reflectionToString(this);
     }
 }

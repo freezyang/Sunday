@@ -1,6 +1,9 @@
 package com.sunday.member.repository;
 
 import com.sunday.member.model.Teacher;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -9,10 +12,16 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class TeacherRepository {
 
+    @Autowired
+    @Qualifier("sqlSessionTemplate")
+    private SqlSession sqlSession;
+
     public Teacher getTeacherInfo(long serial) {
-        Teacher teacher = new Teacher();
-        teacher.setName("홍길동");
-        teacher.setCareer(5);
-        return teacher;
+
+        return sqlSession.selectOne("com.sunday.member.Teacher.selectTeacherInfo", serial);
+    }
+
+    public int insert(Teacher teacher) {
+        return sqlSession.insert("com.sunday.member.Teacher.insert", teacher);
     }
 }

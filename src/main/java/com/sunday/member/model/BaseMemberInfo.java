@@ -1,20 +1,27 @@
 package com.sunday.member.model;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * Created by novot on 2017-05-16.
  */
-public class BaseMemberInfo {
+public abstract class BaseMemberInfo {
     protected long serialNo;
     protected String name;
     protected String christianName;
     protected int age;
-    protected LocalDate festivitas;
+    protected String festivitas;
     protected LocalDate birthday;
     protected String address;
     protected String zipcode;
     protected String cellNumber;
+    protected LocalDateTime createDt;
+    protected String createWho;
+    protected LocalDateTime updateDt;
+    protected String updateWho;
 
     public long getSerialNo() {
         return serialNo;
@@ -48,11 +55,11 @@ public class BaseMemberInfo {
         this.age = age;
     }
 
-    public LocalDate getFestivitas() {
+    public String getFestivitas() {
         return festivitas;
     }
 
-    public void setFestivitas(LocalDate festivitas) {
+    public void setFestivitas(String festivitas) {
         this.festivitas = festivitas;
     }
 
@@ -90,16 +97,6 @@ public class BaseMemberInfo {
 
     @Override
     public String toString() {
-        return "BaseMemberInfo{" +
-                "serialNo=" + serialNo +
-                ", name='" + name + '\'' +
-                ", christianName='" + christianName + '\'' +
-                ", age=" + age +
-                ", festivitas=" + festivitas +
-                ", birthday=" + birthday +
-                ", address='" + address + '\'' +
-                ", zipcode='" + zipcode + '\'' +
-                ", cellNumber='" + cellNumber + '\'' +
-                '}';
+        return ToStringBuilder.reflectionToString(this);
     }
 }

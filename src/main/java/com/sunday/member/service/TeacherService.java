@@ -17,4 +17,8 @@ public class TeacherService {
     public Teacher getTeacherInfo(long serial) {
         return teacherRepository.getTeacherInfo(serial);
     }
+
+    public int insert(Teacher teacher) {
+        return teacherRepository.insert(teacher);
+    }
 }

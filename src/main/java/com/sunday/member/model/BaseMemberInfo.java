@@ -1,6 +1,7 @@
 package com.sunday.member.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.sunday.member.type.Gender;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.time.LocalDate;
@@ -10,30 +11,22 @@ import java.time.LocalDateTime;
  * Created by novot on 2017-05-16.
  */
 public abstract class BaseMemberInfo {
-    protected long serialNo;
     protected String name;
     protected String christianName;
     protected int age;
+    protected Gender gender;
     protected String festivitas;
     @JsonFormat(pattern = "yyyy-MM-dd")
     protected LocalDate birthday;
     protected String address;
     protected String zipcode;
-    protected String cellNumber;
+    protected String cellPhone;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     protected LocalDateTime createDt;
     protected String createWho;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     protected LocalDateTime updateDt;
     protected String updateWho;
-
-    public long getSerialNo() {
-        return serialNo;
-    }
-
-    public void setSerialNo(long serialNo) {
-        this.serialNo = serialNo;
-    }
 
     public String getName() {
         return name;
@@ -57,6 +50,14 @@ public abstract class BaseMemberInfo {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 
     public String getFestivitas() {
@@ -91,12 +92,12 @@ public abstract class BaseMemberInfo {
         this.zipcode = zipcode;
     }
 
-    public String getCellNumber() {
-        return cellNumber;
+    public String getCellPhone() {
+        return cellPhone;
     }
 
-    public void setCellNumber(String cellNumber) {
-        this.cellNumber = cellNumber;
+    public void setCellPhone(String cellPhone) {
+        this.cellPhone = cellPhone;
     }
 
     public LocalDateTime getCreateDt() {
@@ -129,10 +130,5 @@ public abstract class BaseMemberInfo {
 
     public void setUpdateWho(String updateWho) {
         this.updateWho = updateWho;
-    }
-
-    @Override
-    public String toString() {
-        return ToStringBuilder.reflectionToString(this);
     }
 }

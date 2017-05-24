@@ -1,13 +1,23 @@
 package com.sunday.member.model;
 
+import com.sunday.member.type.Position;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
  * Created by novot on 2017-05-16.
  */
 public class Teacher extends BaseMemberInfo{
+    private long teacherSerial;
     private int career;
     private Position position;
+
+    public long getTeacherSerial() {
+        return teacherSerial;
+    }
+
+    public void setTeacherSerial(long teacherSerial) {
+        this.teacherSerial = teacherSerial;
+    }
 
     public int getCareer() {
         return career;

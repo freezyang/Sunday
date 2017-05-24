@@ -2,13 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sunday.member.Teacher">
     <insert id="insert" parameterType="com.sunday.member.model.Teacher">
-        INSERT INTO teacher(serial, name, christian_name, age, festivitas, birthday, address, zipcode, cell_phone, career, position, create_dt, create_who)
-        VALUES(null, #{name}, #{christianName}, #{age}, #{age}, #{age}, #{address}, #{zipcode}, #{cell_phone}, #{career}, #{position}, now(), 'system');
+        INSERT INTO teacher(teacher_serial, name, christian_name, age, gender, festivitas, birthday, address, zipcode, cell_phone, career, position, create_dt, create_who)
+        VALUES(null, #{name}, #{christianName}, #{age}, #{gender}, #{festivitas}, #{birthday}, #{address}, #{zipcode}, #{cell_phone}, #{career}, #{position}, now(), 'system');
     </insert>
 
-    <select id="selectTeacherInfo" parameterType="long" resultType="com.sunday.member.model.Teacher">
-        SELECT serial, name, christian_name, age, festivitas, birthday, address, zipcode, cell_phone, career, create_dt, create_who, update_dt, update_who
+    <resultMap id="teacher" type="com.sunday.member.model.Teacher">
+        <id column="teacher_serial" property="teacherSerial" javaType="long"/>
+        <result column="gender" property="gender" typeHandler="org.apache.ibatis.type.EnumTypeHandler" />
+        <result column="position" property="position" typeHandler="org.apache.ibatis.type.EnumTypeHandler" />
+    </resultMap>
+    <select id="selectTeacherInfo" parameterType="long" resultMap="teacher">
+        SELECT teacher_serial, name, christian_name, age, gender, festivitas, birthday, address, zipcode, cell_phone, career, position, create_dt, create_who, update_dt, update_who
         FROM teacher
-        WHERE serial = #{serial}
+        WHERE teacher_serial = #{teacherSerial}
     </select>
 </mapper>

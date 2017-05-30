@@ -1,6 +1,5 @@
 package com.sunday.member.service;
 
-import com.sunday.member.controller.StudentController;
 import com.sunday.member.model.Student;
 import com.sunday.member.repository.StudentRepository;
 import org.slf4j.Logger;
@@ -17,6 +16,10 @@ public class StudentService {
 
     @Autowired
     private StudentRepository studentRepository;
+
+    public int insert(Student student) {
+        return studentRepository.insert(student);
+    }
 
     public Student getStudentInfo(long serial) {
         return studentRepository.getStudentInfo(serial);

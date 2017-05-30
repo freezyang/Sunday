@@ -8,6 +8,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  */
 public class Class {
     private long classSerial;
+    private long groupSerial;
     private String name;  //반이름
     private String classRoom;  //교실위치
     private Teacher seniorClassTeacher;  //정 담임교사

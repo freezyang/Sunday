@@ -20,6 +20,13 @@
         <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
     </settings>
 
+    <typeAliases>
+        <typeAlias type="com.sunday.church.model.Church" alias="church"/>
+        <typeAlias type="com.sunday.group.model.Group" alias="group"/>
+        <typeAlias type="com.sunday.member.model.Student" alias="student"/>
+        <typeAlias type="com.sunday.member.model.Teacher" alias="teacher"/>
+    </typeAliases>
+
     <!--<typeHandlers>
         <typeHandler handler="org.apache.ibatis.type.EnumTypeHandler"/>
     </typeHandlers>-->
@@ -37,6 +44,9 @@
     </environments>
 
     <mappers>
+        <mapper resource="mapper/church.xml"/>
+        <mapper resource="mapper/churchGroup.xml"/>
         <mapper resource="mapper/teacher.xml"/>
+        <mapper resource="mapper/student.xml"/>
     </mappers>
 </configuration>

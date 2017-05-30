@@ -1,5 +1,6 @@
 package com.sunday.member.repository;
 
+import com.sunday.common.BaseRepository;
 import com.sunday.member.model.Student;
 import org.springframework.stereotype.Repository;
 
@@ -7,13 +8,17 @@ import org.springframework.stereotype.Repository;
  * Created by novot on 2017-05-16.
  */
 @Repository
-public class StudentRepository {
+public class StudentRepository extends BaseRepository {
+
+    public StudentRepository() {
+        super.prefix = "com.sunday.member.Student.";
+    }
+
+    public int insert(Student student) {
+        return sqlSession.insert(getSqlId("insert"), student);
+    }
 
     public Student getStudentInfo(long serial) {
-        Student student = new Student();
-        student.setName("이만복");
-        student.setAge(8);
-
-        return student;
+        return sqlSession.selectOne(getSqlId("getStudentInfo"), serial);
     }
 }
